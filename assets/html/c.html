@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏(刷新重新开始)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #message {
+            margin: 20px 0;
+            font-size: 18px;
+            min-height: 27px;
+        }
+        #attempts {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .hint {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>猜数字游戏</h1>
+        <p>我已经想好了一个1到100之间的数字，你能猜出来吗？</p>
+        
+        <div>
+            <input type="number" id="guessInput" min="1" max="100" placeholder="输入数字">
+            <button onclick="checkGuess()">猜一猜</button>
+        </div>
+        
+        <div id="message"></div>
+        <p>尝试次数: <span id="attempts">0</span></p>
+        <p class="hint">每次猜测后，我会告诉你猜的数字是太高还是太低</p>
+    </div>
+
+    <script>
+        // 生成随机数字
+        const targetNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        
+        function checkGuess() {
+            const guessInput = document.getElementById('guessInput');
+            const message = document.getElementById('message');
+            const attemptsDisplay = document.getElementById('attempts');
+            
+            const userGuess = parseInt(guessInput.value);
+            
+            // 验证输入
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = "请输入1到100之间的有效数字！";
+                message.style.color = "red";
+                return;
+            }
+            
+            attempts++;
+            attemptsDisplay.textContent = attempts;
+            
+            // 检查猜测
+            if (userGuess === targetNumber) {
+                message.textContent = `恭喜你！你猜对了！数字就是 ${targetNumber}。`;
+                message.style.color = "green";
+                guessInput.disabled = true;
+            } else if (userGuess < targetNumber) {
+                message.textContent = "太低了，再试一次！";
+                message.style.color = "blue";
+            } else {
+                message.textContent = "太高了，再试一次！";
+                message.style.color = "red";
+            }
+            
+            // 清空输入框并聚焦
+            guessInput.value = '';
+            guessInput.focus();
+        }
+        
+        // 允许按回车键提交猜测
+        document.getElementById('guessInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkGuess();
+            }
+        });
+    </script>
+</body>
+</html>
