@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>FFUSER</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <style type="text/css">
+                body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+            animation: backgroundPulse 20s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        
+        	body{
+                background-color: #2a2d3e;
+                color: white;
+                text-align: center;
+                padding-top: 100px;
+                }
+                        .btn {
+            padding: 1.5vw 3vw;
+            font-size: 2vw;
+            font-weight: 400;
+            border: none;
+            border-radius: 0.5vw;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            background-size: 200% 200%;
+            animation: gradientMove 5s ease infinite;
+            transition: transform 0.3s ease;
+            font-family: 'Press Start 2P', cursive;
+            }
+                        .btn-official {
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+        }
+        .btn-join {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+        .btn-download {
+            background: linear-gradient(45deg, #20e0d0, #00bfa5);
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 2vw rgba(255, 255, 255, 0.3);
+        }
+        /* 渐变流动动画 */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 7vw;
+                margin-bottom: 6vw;
+                letter-spacing: 0.1vw;
+            }
+            .btn {
+                font-size: 3vw;
+                padding: 2.5vw 5vw;
+                border-radius: 1vw;
+            }
+            .btn-container {
+                gap: 3vw;
+            }
+        
+                }
+                .box{
+                    width: 400px;
+                    background-color: rgba(0,0,0,.2);
+                    margin: 20px auto;
+                    border-radius: 20px;
+                    padding: 10px 0;
+                    }
+        </style>
+	</head>
+	<body>
+    <img src="assets/logo.png"/>
+		<h1>FF泥土商店</h1>
+        <p>泥土商店，永不倒闭</p>
+        <div class="box">
+        <h1>作者</h1>
+        <p>作者为:ONadmin</p>
+        </div>
+            <div class="btn-container">
+        
+        <a href="https://v.douyin.com/SaJXCFjsi6M/" class="btn btn-join" target="_blank">作者dy主页</a>
+    </div>
+        
+        <div class="box">
+        <h1>描述</h1>
+        <p>FF泥土商店是一个非常好玩的商店，有vip，有雪球菜单，还有各种各种好玩的等着你玩</p>
+        </div>
+        
+        <div class="box">
+         <h1>怎么游玩？</h1>
+        <p>请在我的世界里面加ONadmin等待开放房间即可！！！</p>
+        </div>
+	</body>
+</html>
